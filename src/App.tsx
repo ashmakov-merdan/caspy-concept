@@ -1,8 +1,15 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "./pages";
+import { Navbar } from "./layouts";
+
 const App = () => {
   return (
-    <>
-      App Component
-    </>
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route index element={<Home />} />
+      </Routes>
+    </Router>
   )
 };
 
