@@ -1,0 +1,62 @@
+@import "../../styles/variables.scss";
+
+.burger {
+    display: flex;
+    gap: 20;
+    flex-direction: column;
+    border: none;
+    outline: none;
+    background: transparent;
+    user-select: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 10;
+
+    & > span {
+        margin-bottom: 10px;
+        width: 100%;
+        height: 2px;
+        border-radius: 5px;
+        background: $darkGreen;
+        transition: all .3s ease;
+    }
+
+    &.active > span {
+        background: $darkGreen;
+    
+        &:nth-child(1) {
+            transform: translate(0, 12px) rotate(-45deg);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &:nth-child(3) {
+            transform: translate(0, -12px) rotate(45deg);
+        }
+    }
+}
+
+@media screen and (max-width: 540px){
+    .burger {
+        width: 30px;
+        height: 30px;
+
+        & > span {
+            margin-bottom: 6px;
+        }
+
+        &.active > span {
+            &:nth-child(1) {
+                transform: translate(0, 8px) rotate(-45deg);
+            }
+            &:nth-child(3) {
+                transform: translate(0, -8px) rotate(45deg);
+            }
+        }
+    }
+}
