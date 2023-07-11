@@ -24,7 +24,7 @@
     }
 
     &.active > span {
-        background: $darkGreen;
+        background: $darkGreen!important;
     
         &:nth-child(1) {
             transform: translate(0, 12px) rotate(-45deg);
