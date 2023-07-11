@@ -1,4 +1,5 @@
 import "./burger.scss";
+import { useLocation } from "react-router-dom";
 
 type BurgerProps = {
     show: boolean,
@@ -6,11 +7,14 @@ type BurgerProps = {
 }
 
 const Burger = ({show, toggle}: BurgerProps) => {
+    const location = useLocation();
+    const path: boolean = location.pathname === "/" || location.pathname === "/about";
+
     return (
         <button className={show ? "burger active" : "burger"} onClick={toggle}>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span style={{backgroundColor: path ? '#FFFFFF' : "#184D47"}}></span>
+            <span style={{backgroundColor: path ? '#FFFFFF' : "#184D47"}}></span>
+            <span style={{backgroundColor: path ? '#FFFFFF' : "#184D47"}}></span>
         </button>
     )
 };
