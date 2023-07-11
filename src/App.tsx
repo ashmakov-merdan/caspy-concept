@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./pages";
+import { Home, Portfolio, Services, About, Contact } from "./pages";
 import { Navbar } from "./layouts";
 
 const App = () => {
@@ -7,7 +7,11 @@ const App = () => {
     <Router>
       <Navbar/>
       <Routes>
-        <Route index element={<Home />} />
+        <Route path={'/'} element={<Home />} />
+        <Route path={'/portfolio'} element={<Portfolio />} />
+        <Route path={'/services'} element={<Services />} />
+        <Route path={'/about'} element={<About />} />
+        <Route path={'/contact'} element={<Contact />} />
       </Routes>
     </Router>
   )
