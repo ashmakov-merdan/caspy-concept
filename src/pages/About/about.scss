@@ -1,0 +1,85 @@
+@import "../../styles/variables.scss";
+
+#about::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../assets/images/carousel-1.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+#about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(360deg, #000000 -5.75%, rgba(0, 0, 0, 0) 51.54%), linear-gradient(180deg, #000000 -20.11%, rgba(0, 0, 0, 0) 22.43%);
+    opacity: 0.9;
+    z-index: -1;
+}
+
+#about .container .content {
+    height: 100%;
+}
+
+#about .container .content .heading {
+    max-width: 480px;
+    width: 100%;
+}
+
+#about .container .content .description {
+    width: 65%;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: $poppins;
+    font-weight: 200;
+    font-size: 15px;
+    color: $white;
+}
+
+@media screen and (max-width: 1024px){
+    #about .container .content .heading {
+        max-width: 340px;
+        width: 100%;
+    }
+
+    #about .container .content .description {
+        max-width: 350px;
+        width: 100%;
+    }
+
+    #about .container .content .description p {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 540px){
+    #about .container .content {
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #about .container .content .heading {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    #about .container .content .description {
+        align-self: center;
+    }
+}
