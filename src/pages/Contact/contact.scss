@@ -1,0 +1,181 @@
+@import "../../styles/variables.scss";
+
+#contact .container .content {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+}
+
+#contact .container .content .heading {
+    grid-column: 2/3;
+    width: 100%;
+    line-height: 36px;
+    color: $darkGreen;
+}
+
+.address {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contact-heading,
+.contact-heading a {
+    text-decoration: none;
+    font-family: $poppins;
+    font-weight: 400;
+    font-size: 40px;
+    color: $darkGreen;
+    line-height: 56px;
+}
+
+.address h3 {
+    font-family: $poppins;
+    font-weight: 700;
+    font-size: 24px;
+    color: $darkGreen;
+}
+
+.address p {
+    font-family: $poppins;
+    font-weight: 400;
+    font-size: 24px;
+    color: $darkGreen;
+}
+
+.address > p > a {
+    text-decoration: none;
+    cursor: pointer;
+    color: $darkGreen;
+}
+
+#contact .container .content .contact {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.contact-heading > a:hover {
+    color: $darkGreen;
+    text-decoration: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.form .heading {
+    width: 100%;
+    color: $darkGreen;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contactForm input,
+.contactForm textarea {
+    padding: 15px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-family: $poppins;
+    font-weight: 300;
+    font-size: 16px;
+    color: $darkGreen;
+    background: transparent;
+    resize: none;
+    transition: all .3s ease-in;
+}
+
+.contactForm input::placeholder,
+.contactForm textarea::placeholder {
+    color: $darkGreen;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+    border-color: $darkGreen;
+}
+
+.contactForm select {
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    background-color: transparent;
+    font-family: $poppins;
+    font-weight: 300;
+    font-size: 16px;
+    color: $darkGreen;
+}
+
+.contactForm select:focus {
+    border-color: $darkGreen;
+}
+
+.contactForm button {
+    height: 60px;
+    border: none;
+    outline: none;
+    background: $cream;
+    font-family: $poppins;
+    font-weight: 400;
+    font-size: 16px;
+    color: $darkGreen;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px){
+    #contact .container .content {
+        padding-inline: 20px;
+    }
+
+    #contact .container .content:first-child {
+        margin-bottom: 40px;
+    }
+
+    .contact-heading,
+    .contact-heading a {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 540px){
+    #contact > .container > .content {
+        display: flex!important;
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .form {
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .contact-heading,
+    .contact-heading a {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .address h3 {
+        margin-top: 40px;
+        line-height: 28px;
+    }
+
+    .address p {
+        font-size: 20px;
+    }
+
+    .address{
+        gap: 10px;
+    }
+
+    #contact .content:nth-child(2) {
+        padding-bottom: 20px;
+    }
+}
