@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+.indicator {
+    z-index: 5;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 0 0 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.indicator button {
+    font-family: $poppins;
+    font-weight: 200;
+    font-size: 50px;
+    color: $white;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    opacity: 60%;
+}
