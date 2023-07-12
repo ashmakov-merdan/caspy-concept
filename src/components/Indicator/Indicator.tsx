@@ -10,16 +10,15 @@ type IndicatorProps = {
 
 const Indicator = ({pages, index, setIndex}: IndicatorProps) => {
 
-    const handleChange = (i: number, img: string) => {
+    const handleChange = (i: number) => {
         setIndex(i);
     }
     return (
         <div className="indicator">
             {
-                pages.map((page, i) => {
-                    const { img } = page;
+                pages.map((_, i) => {
                     const isActivePage = i === index;
-                    return <button key={i} style={{opacity: isActivePage ? '100%' : '50%'}} onClick={() => handleChange(i, img)}>0{i + 1}</button>
+                    return <button key={i} style={{opacity: isActivePage ? '100%' : '50%'}} onClick={() => handleChange(i)}>0{i + 1}</button>
                 })
             }
         </div>
