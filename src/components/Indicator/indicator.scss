@@ -21,3 +21,16 @@
     border: none;
     opacity: 60%;
 }
+
+@media screen and (max-width: 540px){
+    .indicator {
+        padding: 0 0 10px 0;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .indicator button {
+        font-size: 36px;
+    }
+}
