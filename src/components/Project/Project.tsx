@@ -4,11 +4,7 @@ type ProjectProps = {
 };
 
 const Project = ({image, index}: ProjectProps) => {
-    return (
-        <div>
-            <img src={image} alt={`project-${index}`} />
-        </div>
-    )
+    return <img src={image} alt={`project-${index}`} />
 };
 
 export default Project;
