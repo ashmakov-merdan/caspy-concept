@@ -5,7 +5,7 @@ import "./slider.scss";
 import { useEffect, useMemo, useState } from "react";
 
 const VerticalSlider = () => {
-    const [ images, setImage ] = useState(carousel);
+    const [ images ] = useState(carousel);
     const [ index, setIndex ] = useState(0);
 
     useEffect(() => {
