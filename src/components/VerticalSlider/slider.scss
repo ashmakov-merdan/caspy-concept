@@ -7,19 +7,33 @@
     overflow: hidden;
 }
 
-.rec-slider-container {
-    margin: 0!important;
-}
-
 .carousel-image {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     filter: brightness(60%);
     background: linear-gradient(360deg, #000000 -5.75%, rgba(0, 0, 0, 0) 51.54%), linear-gradient(180deg, #000000 -20.11%);
     z-index: -1;
+    opacity: 0.2;
+    transition: all .7s ease;
+
+    &.activeSlide {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &.lastSlide {
+        transform: translateY(-100%);
+    }
+
+    &.nextSlide {
+        transform: translateY(100%);
+    }
 }
+
 
 .carousel-image::after {
     content: "";

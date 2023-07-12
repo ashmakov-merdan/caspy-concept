@@ -1,32 +1,49 @@
-import Carousel from "react-elastic-carousel";
 import Indicator from "../Indicator/Indicator";
 import SliderItem from "./SliderItem";
 import { carousel } from "../../static";
 import "./slider.scss";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const VerticalSlider = () => {
+    const [ images, setImage ] = useState(carousel);
+    const [ index, setIndex ] = useState(0);
+
+    useEffect(() => {
+        const lastIndex = images.length - 1;
+
+        if(index < 0){
+            setIndex(lastIndex);
+        }
+
+        if(index > lastIndex){
+            setIndex(0);
+        };
+    }, [index, carousel]);
+
     const renderCarousel = useMemo(() => {
-        return carousel && carousel.map((image, i) => {
+        return images && images.map((image, i) => {
             const { img } = image;
-            return <SliderItem key={i} img={img} index={i} />
+
+            let position = 'nextSlide';
+
+            if(i === index){
+                position = "activeSlide";
+            }
+
+            if(i === index - 1 || (index === 0 && i === images.length - 1)){
+                position = 'lastSlide';
+            }
+
+            return <SliderItem className={`carousel-image ${position}`} key={i} img={img} index={i} />
         })
-    }, [carousel])
+    }, [index, carousel]);
 
     return (
         <div className="slider">
-            <Carousel
-                verticalMode={true}
-                itemsToShow={1}
-                initialActiveIndex={0}
-                showArrows={false}
-                enableSwipe={false}
-                renderPagination={({pages, activePage, onClick}) => {
-                    return <Indicator pages={pages} active={activePage} onClick={onClick} />
-                }}
-            >
+            <div className="slider-wrapper">
                 {renderCarousel}
-            </Carousel>
+                <Indicator pages={images} index={index} setIndex={setIndex}/>
+            </div>
         </div>
     )
 };
