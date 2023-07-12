@@ -3,9 +3,15 @@ import Indicator from "../Indicator/Indicator";
 import SliderItem from "./SliderItem";
 import { carousel } from "../../static";
 import "./slider.scss";
+import { useMemo } from "react";
 
 const VerticalSlider = () => {
-    const width = window.innerWidth;
+    const renderCarousel = useMemo(() => {
+        return carousel && carousel.map((image, i) => {
+            const { img } = image;
+            return <SliderItem key={i} img={img} index={i} />
+        })
+    }, [carousel])
 
     return (
         <div className="slider">
@@ -14,17 +20,12 @@ const VerticalSlider = () => {
                 itemsToShow={1}
                 initialActiveIndex={0}
                 showArrows={false}
-                enableSwipe={width < 425 ? true : false}
+                enableSwipe={false}
                 renderPagination={({pages, activePage, onClick}) => {
                     return <Indicator pages={pages} active={activePage} onClick={onClick} />
                 }}
             >
-                {
-                    carousel.map((image, i) => {
-                        const { img } = image;
-                        return <SliderItem key={i} img={img} index={i} />
-                    })
-                }
+                {renderCarousel}
             </Carousel>
         </div>
     )
