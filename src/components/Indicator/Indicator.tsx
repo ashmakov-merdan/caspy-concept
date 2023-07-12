@@ -3,7 +3,7 @@ import "./indicator.scss";
 type IndicatorProps = {
     pages: number[],
     active: number,
-    onClick: (indicatorId: number) => void
+    onClick: (page: string) => void
 }
 const Indicator = ({pages, active, onClick}: IndicatorProps) => {
     return (
@@ -11,7 +11,7 @@ const Indicator = ({pages, active, onClick}: IndicatorProps) => {
             { pages.map((page) => {
                 const isActivePage: boolean = active === page;
                 return (
-                    <button key={page} onClick={() => onClick(page)} style={{opacity: isActivePage ? '100%' : '50%'}}>0{page + 1}</button>
+                    <button key={page} onClick={() => onClick(page.toString())} style={{opacity: isActivePage ? '100%' : '50%'}}>0{page + 1}</button>
                 )
             })}
         </div>
